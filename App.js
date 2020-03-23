@@ -11,7 +11,13 @@ const App = () => {
     { id: 2, text: 'Eggs' },
     { id: 3, text: 'Breads' },
     { id: 4, text: 'Apples' },
-  ])
+  ]);
+
+  const deleteItem = (id) => {
+    setItems(prevItems => {
+      return prevItems.filter(item => item.id != id);
+    });
+  }
 
   return (
     <View style={styles.container}>
@@ -19,7 +25,7 @@ const App = () => {
       <FlatList
         data={items}
         renderItem={
-          ({ item }) => <ListItem item={item} />
+          ({ item }) => <ListItem item={item} deleteItem={deleteItem} />
         }
       />
     </View>
