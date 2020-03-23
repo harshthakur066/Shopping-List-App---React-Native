@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { uuid } from 'uuidv4';
 
 import Header from './components/header';
+import ListItem from './components/listItems';
 
 const App = () => {
 
   const [items, setItems] = useState([
-    { id: 1, text: 'Milk' },
+    { id: 1, text: 'Fool' },
     { id: 2, text: 'Eggs' },
     { id: 3, text: 'Breads' },
     { id: 4, text: 'Apples' },
@@ -19,7 +19,7 @@ const App = () => {
       <FlatList
         data={items}
         renderItem={
-          ({ item }) => <Text> {item.text} </Text>
+          ({ item }) => <ListItem item={item} />
         }
       />
     </View>
@@ -29,7 +29,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60
+    paddingTop: 10
   }
 });
 
